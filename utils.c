@@ -22,7 +22,7 @@ get_file_content(size_t *restrict content_size, const char *restrict path)
   if (err != 0)
     {
       fmmap_close_file(file);
-      ERR_EXIT("Error while mapping the file into memory\n", "");
+      ERR_EXIT("%s", "Error while mapping the file into memory\n");
     }
 
   *content_size = file->size;
@@ -31,7 +31,18 @@ get_file_content(size_t *restrict content_size, const char *restrict path)
 
   err = fmmap_close_file(file);
   if (err != 0)
-    ERR_EXIT("Error while closing the file\n", "");
+    ERR_EXIT("%s", "Error while closing the file\n");
 
   return content;
+}
+
+int
+get_num(vstr *str)
+{
+  char *ptr = NULL;
+  long ret = strtol(str->data, &ptr, 10);
+  if (ptr == str->data)
+    ret = INT_MAX;
+  vstr_separate_delim(str, "\n");
+  return ret;
 }

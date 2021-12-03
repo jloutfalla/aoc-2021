@@ -17,12 +17,9 @@ get_num(vstr *str)
 void
 part1(vstr content)
 {
-  int last_value, current_value, cmp, i;
-  vstr line;
+  int last_value, current_value, cmp;
     
-  i = -1;
   cmp = 0;
-
   last_value = get_num(&content);
   while ((current_value = get_num(&content)) != INT_MAX)
     {
@@ -38,8 +35,7 @@ part1(vstr content)
 void
 part2(vstr content)
 {
-  int a, b, c, d, cmp;  vstr line; 
-  char *ptr = NULL;
+  int a, b, c, d, cmp; 
 
   cmp = 0;
   a = get_num(&content);
@@ -61,7 +57,6 @@ part2(vstr content)
 int
 main()
 {
-  int last_value, current_value, cmp, i;
   size_t content_size = 0;
   const char *str = get_file_content(&content_size, "1/input");
   vstr content = vstr_from_size_cstr(str, content_size);
