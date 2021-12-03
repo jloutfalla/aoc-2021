@@ -1,0 +1,6 @@
+[submodule "lib/fmmap"]
+	path = lib/fmmap
+	url = https://github.com/jloutfalla/fmmap
+[submodule "lib/vstr"]
+	path = lib/vstr
+	url = https://github.com/jloutfalla/vstr
