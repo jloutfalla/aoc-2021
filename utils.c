@@ -5,12 +5,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 const char *
 get_file_content(size_t *restrict content_size, const char *restrict path)
 {
   fmmap_file *file;
-  size_t size = 0;
   char *content, *temp;
   int err = 0;
 

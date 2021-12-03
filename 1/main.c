@@ -3,17 +3,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int
-get_num(vstr *str)
-{
-  char *ptr = NULL;
-  long ret = strtol(str->data, &ptr, 10);
-  if (ptr == str->data)
-    ret = INT_MAX;
-  vstr_separate_delim(str, "\n");
-  return ret;
-}
-
 void
 part1(vstr content)
 {
@@ -54,16 +43,4 @@ part2(vstr content)
   printf("Part 2: %d\n", cmp);
 }
 
-int
-main()
-{
-  size_t content_size = 0;
-  const char *str = get_file_content(&content_size, "1/input");
-  vstr content = vstr_from_size_cstr(str, content_size);
-
-  part1(content);
-  part2(content);  
-  
-  free((void *)str);
-  return 0;
-}
+AOC_MAIN("1/input")
