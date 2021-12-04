@@ -5,20 +5,25 @@ OUTPUTS = day1 day2 #day3 day4 day5 day6 day7 day8 day9 day10 day11 day12 day13 
 
 NEEDED_FILES = lib/fmmap/fmmap.h lib/vstr/vstr.h utils.h
 
-.PHONY: all
+.PHONY: all help clean
 all: $(OUTPUTS)
 
+help:
+	@-echo "* help:		Print this help"
+	@-echo "* all:		Build the executables of each available day"
+	@-echo "* clean:	Clean repository"
+	@-echo "* day[1..24]	Build a specific day"
+
+clean:
+	rm -f day* *.o */*.o
+
 day%: %/main.o %/input utils.o
-	$(CC) $(AOC_LDFLAGS) -o $@ $< utils.o
+	@-$(CC) $(AOC_LDFLAGS) -o $@ $< utils.o
 
 .SECONDARY:
 utils.o: utils.c utils.h
-	$(CC) $(AOC_CFLAGS) -o $@ -c $<
+	@-$(CC) $(AOC_CFLAGS) -o $@ -c $<
 
 .SECONDARY:
 %.o: %.c 
-	$(CC) $(AOC_CFLAGS) -o $@ -c $<
-
-.PHONY: clean
-clean:
-	rm -f day* *.o */*.o
+	@-$(CC) $(AOC_CFLAGS) -o $@ -c $<

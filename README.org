@@ -1,0 +1,19 @@
+#+TITLE: Advent of Code - 2021
+#+AUTHOR: Jean-Baptiste Loutfalla
+#+DATE:
+#+LANGUAGE: en
+#+OPTIONS: toc:nil; num:nil
+
+* About
+This is my solutions of the [[https://adventofcode.com/2021][Advent of Code 2021]].
+
+* Build
+To build each available day, execute this command:
+#+BEGIN_SRC sh
+make
+#+END_SRC
+
+For more informations about the differents target, you can execute:
+#+BEGIN_SRC sh
+make help
+#+END_SRC
