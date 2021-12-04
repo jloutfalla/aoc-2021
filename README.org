@@ -4,10 +4,9 @@
 #+LANGUAGE: en
 #+OPTIONS: toc:nil; num:nil
 
-* About
 This is my solutions of the [[https://adventofcode.com/2021][Advent of Code 2021]].
 
-* Build
+** Build
 To build each available day, execute this command:
 #+BEGIN_SRC sh
 make
